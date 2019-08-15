@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/superhero/bootstrap.min.css" rel="stylesheet" integrity="sha384-LS4/wo5Z/8SLpOLHs0IbuPAGOWTx30XSoZJ8o7WKH0UJhRpjXXTpODOjfVnNjeHu" crossorigin="anonymous">
+  
+</head>
+<body>
+  Welcome to the Usernames List.
+<hr>
+
+<div class="list-group"></div>
+ <ul class="users">
+  <% for(var i=0; i<users.length; i++) {%>
+      <a href="#" class="list-group-item list-group-item-action">
+    <li class="users">
+
+      <span><%= users[i].name %></span>
+      
+      <span><%= users[i].user %></span>
+    </li>
+      </a>
+  <% } %>
+  </ul>
+</div>
+
+ 
+</body>
+</html>
