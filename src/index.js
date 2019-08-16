@@ -26,7 +26,7 @@ app.get("/home", (request, response) => {
     if (error) {
       return response.status(500).send(error);
     }
-    response.render("index.ejs", { users: result });
+    response.render("home.ejs", { users: result });
   });
 });
 
@@ -36,6 +36,10 @@ app.get("/create", (request, response) => {
 
 app.get("/update", (request, response) => {
   response.render("update.ejs");
+});
+
+app.get("/delete", (request, response) => {
+  response.render("delete.ejs");
 });
 
 app.post("/create", (req, res) => {
@@ -58,6 +62,15 @@ app.post("/update", (req, res) => {
       res.redirect("/");
     }
   );
+});
+
+app.post("/delete", (req, res) => {
+  console.log(req.body);
+  collection.deleteOne({ name: req.body.name }, (err, res2) => {
+    if (err) console.log("some error in deleting records in databse " + err);
+    else console.log("data deleted in the database!");
+    res.redirect("/");
+  });
 });
 
 app.listen(PORT, () => {
